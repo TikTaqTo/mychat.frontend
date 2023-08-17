@@ -1,11 +1,13 @@
 import React from 'react';
 import { Button, Block } from '../../../components'
 import { Form, Input } from 'antd';
-import { LockOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
+import { LockOutlined, MailOutlined, UserOutlined, InfoCircleTwoTone } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
-
 const RegisterForm = props => {
+  
+  const success = false;
+
   return (
     <div>
       <div className="auth__top">
@@ -13,6 +15,7 @@ const RegisterForm = props => {
         <p>Для входа в чат, вам нужно зарегистрироваться</p>
       </div>
       <Block>
+      {!success ? (
         <Form className="login-form">
           <Form.Item>
             <Input
@@ -54,8 +57,19 @@ const RegisterForm = props => {
               Зарегистрироваться
             </Button>
           </Form.Item>
-          <Link className="auth__register-link" to='/'>Войти в аккаунт</Link>
+          <Link className="auth__register-link" to='/signin'>Войти в аккаунт</Link>
           </Form>
+          ) : (
+            <div className="auth__success-block">
+            <div>
+              <InfoCircleTwoTone />
+            </div>
+            <h2>Подтвердите свой аккаунт</h2>
+            <p>
+              На Вашу почту отправлено письмо с ссылкой на подтверждение аккаунта.
+            </p>
+          </div>
+          )}
       </Block>
     </div>
   )
