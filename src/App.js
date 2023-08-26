@@ -1,11 +1,17 @@
 import React from 'react';
-import { Auth } from './pages';
 import './styles/index.scss';
+
+import { Auth, Home } from './pages';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div className='wrapper'>
-      <Auth />
+      <Routes>
+        <Route exact path="/signup" Component={Auth} />
+        <Route exact path="/signin" Component={Auth} />
+        <Route exact path="/" Component={Home} />
+      </Routes>
     </div>
   );
 }

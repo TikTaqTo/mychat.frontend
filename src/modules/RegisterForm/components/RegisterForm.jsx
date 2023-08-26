@@ -5,7 +5,7 @@ import { LockOutlined, MailOutlined, UserOutlined, InfoCircleTwoTone } from '@an
 import { Link } from 'react-router-dom';
 
 const RegisterForm = props => {
-  
+
   const success = false;
 
   return (
